@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Hello world</title>
+</head>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<!-- <script>
+   var socket = io();
+   socket.on('connectToRoom',function(data) {
+      document.body.innerHTML = '';
+      document.write(data);
+   });
+   socket.on('connect_failed', function() {
+   document.write("Sorry, there seems to be an issue with the connection!");
+})
+</script> -->
+
+<script>
+   var socket = io('/my-namespace');
+   socket.on('hi', function (data) {
+      document.body.innerHTML = '';
+      document.write(data);
+   });
+</script>
+
+
+
+<!-- <script>
+   var socket = io();
+   socket.on('newclientconnect',function(data) {
+      document.body.innerHTML = '';
+      document.write(data.description);
+   });
+</script> -->
+
+<!-- broadcast as a function -->
+<!-- <script>
+   var socket = io();
+   socket.on('broadcast',function(data) {
+      document.body.innerHTML = '';
+      document.write(data.description);
+   });
+</script> -->
+
+<!-- <script>
+   var socket = io();
+   socket.on('message', function (data) { document.write(data) });
+   socket.on('testerEvent', function(data){document.write(data.description)});
+   socket.emit('clientEvent', 'Sent an event from the client!');
+
+</script> -->
+
+<body>Hello world</body>
+
+</html>
