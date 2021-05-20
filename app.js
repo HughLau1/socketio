@@ -19,11 +19,11 @@ app.get('/', function(req, res) {
 //    io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
 // })
 
-var nsp = io.of('/my-namespace');
-nsp.on('connection', function(socket) {
-   console.log('someone connected');
-   nsp.emit('hi', 'Hello everyone!');
-});
+// var nsp = io.of('/my-namespace');
+// nsp.on('connection', function(socket) {
+//    console.log('someone connected');
+//    nsp.emit('hi', 'Hello everyone!');
+// });
 
 
 //broadcast
@@ -51,30 +51,30 @@ nsp.on('connection', function(socket) {
 
 
 
-// //Whenever someone connects this gets executed
-// io.on('connection', function(socket) {
-//    console.log('A user connected');
+//Whenever someone connects this gets executed
+io.on('connection', function(socket) {
+   console.log('A user connected');
 
-//    //Send a message after a timeout of 4seconds
-//    setTimeout(function() {
-//       socket.send('Sent a message 4seconds after connection!');
-//    }, 4000);
+   //Send a message after a timeout of 4seconds
+   setTimeout(function() {
+      socket.send('Sent a message 4seconds after connection!');
+   }, 4000);
 
-//    //Send a message when 
-//    setTimeout(function() {
-//       //Sending an object when emmiting an event
-//       socket.emit('testerEvent', { description: 'A custom event named testerEvent!'});
-//    }, 4000);
+   // //Send a message when 
+   // setTimeout(function() {
+   //    //Sending an object when emmiting an event
+   //    socket.emit('testerEvent', { description: 'A custom event named testerEvent!'});
+   // }, 4000);
 
-//    socket.on('clientEvent', function(data) {
-//       console.log(data);
-//    });
+   // socket.on('clientEvent', function(data) {
+   //    console.log(data);
+   // });
 
-//    Whenever someone disconnects this piece of code executed
-//    socket.on('disconnect', function () {
-//       console.log('A user disconnected');
-//    });
-// });
+   // Whenever someone disconnects this piece of code executed
+   socket.on('disconnect', function () {
+      console.log('A user disconnected');
+   });
+});
 
 http.listen(3000, function() {
    console.log('listening on *:3000');
