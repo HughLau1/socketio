@@ -57,7 +57,7 @@ io.on('connection', function(socket) {
 
    //Send a message after a timeout of 4seconds
    setTimeout(function() {
-      socket.send('Sent a message 4seconds after connection!');
+      socket.send('Sent a message 4 seconds after connection!');
    }, 4000);
 
    // //Send a message when 
